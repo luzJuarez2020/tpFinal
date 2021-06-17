@@ -14,7 +14,7 @@
 
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-red w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Logo</a>
+    <a href="#" class="w3-bar-item w3-button w3-red w3-mobile">Logo</a>
 </div>
 <!-- Header -->
 

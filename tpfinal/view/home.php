@@ -73,7 +73,7 @@
         <div class="w3-container w3-white">
             <i onclick="document.getElementById('download').style.display='none'" class="fa fa-remove w3-xlarge w3-button w3-transparent w3-right w3-xlarge"></i>
             <h2 class="w3-wide">Usuario</h2>
-            <form action="homeInfo.php" method="post" >
+            <form action="../model/homeInfo.php" method="post" >
             <input  id="usuario" name="usuario" class="w3-input w3-border" type="text" placeholder="usuario" >
                 <input id="contra" name="contra" class="w3-input w3-border" type="password" placeholder="contraseña">
                 <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">ingresar</button>
