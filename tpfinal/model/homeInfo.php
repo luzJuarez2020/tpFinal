@@ -1,5 +1,5 @@
 <?php
-require ('../controller/baseDeDatos.php');
+require('../controller/paginaPrincipalAdmi.php');
 
 $user = isset($_POST["usuario"]) ? $_POST["usuario"] : "";
 $contrasenia = isset($_POST["contra"]) ? $_POST["contra"] : "";
@@ -37,7 +37,7 @@ switch ($rol){
       header("location:paginaPrincipalAdmi.php");
       break;
       default:
-         header("location:../view/home.php");
+         header("location:../view/index.php");
 }
 
 
