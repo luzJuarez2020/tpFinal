@@ -1,5 +1,19 @@
 <?php
+session_start();
+if(isset($_SESSION['usuario'])) {
+    if ($_SESSION['usuario'] == 4) {
+        echo "vamo";
+    } else {
+        header("location:../view/index.php");
+    }
+}
+
+
+
+
 include_once("../controller/Configuracion.php");
+
+
 
 $configuracion=new Configuracion();
 $conectar = $configuracion->createDatabase();
