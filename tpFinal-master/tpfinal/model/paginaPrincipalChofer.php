@@ -1,12 +1,10 @@
 <?php
 session_start();
-
-    if($_SESSION['usuario']==1){
-        echo "vamo";
-    }
-    else{
-        header("location:../view/index.php");
-    }
+if(isset($_SESSION["usuario"])) {
+    $usuario = $_SESSION["usuario"];
+    $pos = explode("-", $usuario);
+    echo "oka";
+}
 
 
 

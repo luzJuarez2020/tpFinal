@@ -1,7 +1,7 @@
 <?php
-require_once ("HeaderIndex.html");
+require_once("../view/HeaderIndex.html");
 
 include_once("Home.html");
 
-require_once ("Footer.html");
+require_once("../view/partial/Footer.html");
 ?>

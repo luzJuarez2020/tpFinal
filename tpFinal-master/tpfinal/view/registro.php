@@ -26,10 +26,10 @@
 
     <div class="w3-container" id="contact">
         <h2>Registrarse</h2>
-        <form action="" method="post">
+        <form action="procesarRegistro" method="post">
             <p><input class="w3-input w3-padding-16 w3-border" name="nombre" type="text" placeholder="nombre" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="apellido" type="text" placeholder="apellido" ></p>
-            <p><input class="w3-input w3-padding-16 w3-border" name="dni" type="number" placeholder="dni" ></p>
+            <p><input class="w3-input w3-padding-16 w3-border" name="dni" type="number" min="8" max="8" placeholder="dni" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="email" type="email" placeholder="email" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="contra" type="password" placeholder="contraseña" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="contra2" type="password" placeholder="repetir contraseña" ></p>
@@ -39,37 +39,6 @@
 
     <!-- End page content -->
 </div>
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-32 w3-center w3-xlarge w3-black">
-    <h5>Encontranos</h5>
-    <div class="w3-xlarge w3-padding-16">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-    </div>
-</footer>
-
-
-<!-- Add Google Maps -->
-<script>
-    function myMap() {
-        myCenter=new google.maps.LatLng(41.878114, -87.629798);
-        var mapOptions= {
-            center:myCenter,
-            zoom:12, scrollwheel: false, draggable: false,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: myCenter,
-        });
-        marker.setMap(map);
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-
 
 </body>
 </html>

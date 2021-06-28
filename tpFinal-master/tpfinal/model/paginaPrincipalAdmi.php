@@ -1,39 +1,21 @@
 <?php
-session_start();
-if(isset($_SESSION['usuario'])) {
-    if ($_SESSION['usuario'] == 4) {
-        echo "vamo";
-    } else {
-        header("location:../view/index.php");
-    }
+
+if(isset($_SESSION["usuario"])) {
+    $usuario = $_SESSION["usuario"];
+    $pos = explode("-", $usuario);
+    echo "oka";
 }
 
 
+include_once("../helper/Configuracion.php");
 
-
-include_once("../controller/Configuracion.php");
-
-
-
-$configuracion=new Configuracion();
-$conectar = $configuracion->createDatabase();
-$resultado = $conectar->query("select * from usuario");
-
-
-
-include_once ("../view/HeaderBasic.html");
-
-foreach ($resultado as $fila){
-    echo $fila["nombre"];
-}
-
+include_once("../view/HeaderBasic.html");
 
 
 ?>
 
 
 
-
-
 <?php
-include_once ("../view/Footer.html");
+include_once("../view/partial/Footer.html");
+?>

@@ -1,8 +1,7 @@
 <?php
-
-if (isset($_SESSION["usuario"])) {
-    session_destroy();
-}
-header("location:../view/index.php");
-exit();
+session_start();
+session_unset();
+session_destroy();
+header("Location: ../view/index.php");
+?>
 
