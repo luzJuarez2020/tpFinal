@@ -15,6 +15,11 @@ class Configuracion
     }
 
 
+    public function queryInsert($sql){
+        self::createDatabase()->queryInsert($sql);
+    }
+
+
     private static function getConfigurationParameters()
     {
         return parse_ini_file("../config/config.ini");
@@ -24,7 +29,6 @@ class Configuracion
         include_once "../helper/DataBase.php";
         $resultado=self::createDatabase()->query("select * from usuario ");
         $user="";
-
         if(!empty($resultado)) {
             foreach ($resultado as $fila){
                 if($fila["nombre"]==$usuario && $fila["contrasenia"]==$contrasenia){
@@ -35,6 +39,8 @@ class Configuracion
         $_SESSION["usuario"] = $user;
 
     }
+
+
 
 
 

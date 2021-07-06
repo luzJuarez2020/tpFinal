@@ -26,11 +26,11 @@
 
     <div class="w3-container" id="contact">
         <h2>Registrarse</h2>
-        <form action="procesarRegistro" method="post">
-            <p><input class="w3-input w3-padding-16 w3-border" name="nombre" type="text" placeholder="nombre" ></p>
-            <p><input class="w3-input w3-padding-16 w3-border" name="apellido" type="text" placeholder="apellido" ></p>
-            <p><input class="w3-input w3-padding-16 w3-border" name="dni" type="number" min="8" max="8" placeholder="dni" ></p>
+        <form action="../controller/prueba.php" method="post">
+            <p><input class="w3-input w3-padding-16 w3-border" name="nombre" type="text" placeholder="nombre de usuario" ></p>
+            <p><input class="w3-input w3-padding-16 w3-border" name="dni" type="number"  placeholder="dni" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="email" type="email" placeholder="email" ></p>
+            <p><input class="w3-input w3-padding-16 w3-border" name="fecha_nac" type="date" placeholder="fecha de nacimiento" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="contra" type="password" placeholder="contraseña" ></p>
             <p><input class="w3-input w3-padding-16 w3-border" name="contra2" type="password" placeholder="repetir contraseña" ></p>
             <p><button class="w3-button w3-black w3-padding-large" type="submit">registrarme</button></p>

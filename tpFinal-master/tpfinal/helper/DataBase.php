@@ -25,6 +25,11 @@ class DataBase
         return $result->fetch_all(MYSQLI_ASSOC); /* trae todas las consultas en forma de tabla*/
     }
 
+    public function queryInsert($sql){
+        $result = $this->connection;
+        mysqli_query($result, $sql);
+    }
+
 
 
 
@@ -39,5 +44,14 @@ class DataBase
 
         if (!$this->connection)
             die("connection failed: " . mysqli_connect_error());
+
     }
+
+    public function getConexion(){
+        return $this->connection;
+    }
+
+
+
+
 }
