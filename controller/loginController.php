@@ -14,25 +14,25 @@ class loginController{
         $nombre=$_POST["usuario"];
         $password=$_POST["password"];
         $rol=$this->loginModel->validarUsuario($nombre,$password);
-        $data["rol"] = $this->loginModel->validarUsuario($nombre,$password);
 
 
         if(isset($rol)) {
             switch ($rol) {
-                case 1://chofer
-                    echo $this->render->render("view/quieroSerParteView.php", $data);
+                case 1:
+                    header("Location:/chofer");
+                    exit();
                     break;
-                case 2://supervisor
+                case 2:
 
                     break;
-                case 3://encargado
+                case 3:
 
                     break;
                 case 4://administrador
                     header("Location: ../model/paginaPrincipalAdmi.php");
                     break;
                 default:
-                    header("Location:../view/quieroSerParteView.php");
+                 header("Location:/inicio");
                     break;
             }
         }

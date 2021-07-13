@@ -3,13 +3,15 @@ include_once("helper/MysqlDatabase.php");
 include_once("helper/Render.php");
 include_once("helper/UrlHelper.php");
 
-include_once("model/TourModel.php");
+
 include_once("model/loginModel.php");
+include_once("model/registroModel.php");
 
 include_once("controller/loginController.php");
-include_once("controller/TourController.php");
+include_once("controller/choferController.php");
 include_once("controller/inicioController.php");
-include_once("controller/QuieroSerParteController.php");
+include_once("controller/registroController.php");
+
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once("Router.php");
@@ -39,27 +41,37 @@ class Configuration{
         return new loginModel($database);
     }
 
+    public function getChoferController(){
+        return new choferController($this->getRender());
+    }
+
+    public function getRegistroModel(){
+        $database = $this->getDatabase();
+        return new registroModel($database);
+    }
+
+    public function getRegistroController(){
+        $registroModel = $this->getRegistroModel();
+        return new registroController($registroModel, $this->getRender());
+    }
+
+
     public function getRender(){
         return new Render('view/partial');
     }
 
-    public function getTourController(){
-        $presentacionModel = $this->getPresentacionModel();
-        return new TourController($presentacionModel, $this->getRender());
-    }
+
 
     public function getLoginController(){
         $loginModel = $this->getLoginModel();
         return new loginController($loginModel, $this->getRender());
     }
 
-    public function getLaBandaController(){
+    public function getInicioController(){
         return new inicioController($this->getRender());
     }
 
-    public function getQuieroSerParteController(){
-        return new QuieroSerParteController($this->getRender());
-    }
+
 
     public function getRouter(){
         return new Router($this);

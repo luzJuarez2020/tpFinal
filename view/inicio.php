@@ -19,14 +19,14 @@
         <div class="w3-container w3-white w3-padding-16 " >
             <h3 style="text-align: center">Inicia Sesion</h3>
             <div class="w3-row-padding" style="margin:0 -16px;">
-                <form action="/login/validarUsuario" method="post">
+                <form action="/login/execute" method="post">
                     <label>Usuario</label>
                     <input name="usuario" class="w3-input w3-border" type="text" placeholder="Usuario"><br>
                     <label>Contraseña</label>
-                    <input name="password" class="w3-input w3-border" type="text" placeholder="Contraseña">
+                    <input name="password" class="w3-input w3-border" type="password" placeholder="Contraseña">
                     <p><button class="w3-button w3-dark-grey">Ingresar</button></p>
-                    <p><button class="w3-button w3-dark-grey">Registrarse</button></p>
                 </form>
+                <p><a href="/registro/execute"><button class="w3-button w3-dark-grey">Registrarse</button></a></p>
             </div>
         </div>
 
