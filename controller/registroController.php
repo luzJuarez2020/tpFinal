@@ -17,13 +17,16 @@ class registroController
 
 
     public function registrar(){
+        $hash = md5( rand(0,1000) );
         $nombre=$_POST['nombre'];
         $contrasenia=$_POST['contra'];
+        $password=md5($contrasenia);
         $dni=$_POST['dni'];
         $fecha_nac=$_POST['fecha_nac'];
         $email=$_POST['email'];
 
-        $this->registroModel->execute($nombre,$contrasenia,$dni,$fecha_nac,$email);
+        $this->registroModel->execute($nombre,$password,$dni,$fecha_nac,$email,$hash);
+        $this->registroModel->emailConfirmacion($email,$nombre,$password,$hash);
         echo $this->render->render("view/inicio.php");
     }
 
