@@ -3,7 +3,6 @@
 
 class choferController
 {
-
     private $render;
 
     public function __construct($render){
@@ -11,6 +10,7 @@ class choferController
     }
 
     public function execute(){
+
         echo $this->render->render("view/choferView.php");
     }
 

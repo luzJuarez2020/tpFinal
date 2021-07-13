@@ -26,4 +26,14 @@ class MysqlDatabase{
     public function execute($sql){
         mysqli_query($this->connection, $sql);
     }
+
+    public function permiso($rolNecesario,$rolUsuario){
+        if($rolNecesario==$rolUsuario){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 }

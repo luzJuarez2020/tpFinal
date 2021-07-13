@@ -36,9 +36,18 @@ class Configuration{
         return parse_ini_file("config/config.ini");
     }
 
+    public function getInicioController(){
+        return new inicioController($this->getRender());
+    }
+
     public function getLoginModel(){
         $database = $this->getDatabase();
         return new loginModel($database);
+    }
+
+    public function getLoginController(){
+        $loginModel = $this->getLoginModel();
+        return new loginController($loginModel, $this->getRender());
     }
 
     public function getChoferController(){
@@ -59,18 +68,6 @@ class Configuration{
     public function getRender(){
         return new Render('view/partial');
     }
-
-
-
-    public function getLoginController(){
-        $loginModel = $this->getLoginModel();
-        return new loginController($loginModel, $this->getRender());
-    }
-
-    public function getInicioController(){
-        return new inicioController($this->getRender());
-    }
-
 
 
     public function getRouter(){
