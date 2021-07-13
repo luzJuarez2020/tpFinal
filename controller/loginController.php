@@ -32,7 +32,7 @@ class loginController{
                     header("Location: ../model/paginaPrincipalAdmi.php");
                     break;
                 default:
-                 header("Location:/inicio");
+                 header("Location:/administrador");
                     break;
             }
         }

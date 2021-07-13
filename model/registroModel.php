@@ -18,7 +18,7 @@ class registroModel
 
 
     public function emailConfirmacion($email,$nombre,$password,$hash){
-        $para     = $email;
+        $para= $email;
         $tema= 'Signup | Verification';
         $msj = '
  
@@ -31,11 +31,15 @@ Password: '.$password.'
 ------------------------
  
 Por favor haga click en este link para activar su cuenta:
-http://www.localhost.com/verificacion.php?email='.$email.'&hash='.$hash.'
+http://localhost/registro/verificacion?email='.$email.'&hash='.$hash.'
 ';
 
         $headers = 'From:noreply@yourwebsite.com' . "\r\n";
-        mail($para, $tema, $msj, $headers);
+       if(mail($para, $tema, $msj,$headers)==true){
+           echo $para;
+       }else{
+           echo "error";
+       }
     }
 
 

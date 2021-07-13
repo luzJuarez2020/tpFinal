@@ -26,8 +26,21 @@ class registroController
         $email=$_POST['email'];
 
         $this->registroModel->execute($nombre,$password,$dni,$fecha_nac,$email,$hash);
-        $this->registroModel->emailConfirmacion($email,$nombre,$password,$hash);
-        echo $this->render->render("view/inicio.php");
+        echo $this->registroModel->emailConfirmacion($email,$nombre,$password,$hash);
+        //echo $this->render->render("view/inicio.php");
+    }
+
+
+    public function verificacion(){
+        $email=$_GET['email'];
+        $hash=$_GET['hash'];
+
+        if($email==$hash){
+            echo $this->render->render("view/verificacionView.php");
+        }else{
+            header("Location:/inicio");
+            exit();
+        }
     }
 
 
