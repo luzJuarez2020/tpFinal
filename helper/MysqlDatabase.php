@@ -22,18 +22,25 @@ class MysqlDatabase{
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
 
+    public function verificarUsuario($sql,$nombre,$password){
+        $result = mysqli_query($this->connection, $sql);
+        $rol=0;
+        if($result->num_rows>0){
+            while($fila=$result->fetch_assoc()){
+                if($nombre==$fila["nombre"] && $password==$fila["contrasenia"] && $fila["estado"]==2){
+                    $rol=$fila["rol"];
+                    $_SESSION["rol"]=$fila["rol"];
+                }
+            }
+        }
+        return $rol;
+    }
+
 
     public function execute($sql){
         mysqli_query($this->connection, $sql);
     }
 
-    public function permiso($rolNecesario,$rolUsuario){
-        if($rolNecesario==$rolUsuario){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
 
 }

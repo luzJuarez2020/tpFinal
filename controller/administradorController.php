@@ -16,4 +16,18 @@ class administradorController
         echo $this->render->render("view/administradorView.php", $data);
     }
 
+    public function executeModRol(){
+        $dni = $_GET["dni"];
+        $data["dni"]=$dni;
+        echo $this->render->render("view/modificacionUsuario.php", $data);
+    }
+
+
+    public function modificarRol(){
+        $rol=$_POST["roles"];
+        $dni = $_GET["dni"];
+        $this->admiModel->asignarRol($rol,$dni);
+        echo $this->execute();
+    }
+
 }

@@ -12,6 +12,7 @@ class registroController
     }
 
     public function execute(){
+
         echo $this->render->render("view/registroView.php");
     }
 
@@ -26,21 +27,17 @@ class registroController
         $email=$_POST['email'];
 
         $this->registroModel->execute($nombre,$password,$dni,$fecha_nac,$email,$hash);
-        echo $this->registroModel->emailConfirmacion($email,$nombre,$password,$hash);
-        //echo $this->render->render("view/inicio.php");
+        $this->registroModel->envioEmailConfirmacion($email,$hash,$nombre,$password);
+        echo $this->render->render("view/inicio.php");
     }
 
 
     public function verificacion(){
         $email=$_GET['email'];
         $hash=$_GET['hash'];
+        $this->registroModel->verificacionHash($email,$hash);
+        echo $this->render->render("view/inicio.php");
 
-        if($email==$hash){
-            echo $this->render->render("view/verificacionView.php");
-        }else{
-            header("Location:/inicio");
-            exit();
-        }
     }
 
 

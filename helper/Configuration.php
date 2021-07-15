@@ -61,6 +61,7 @@ class Configuration{
         return new registroModel($database);
     }
 
+
     public function getRegistroController(){
         $registroModel = $this->getRegistroModel();
         return new registroController($registroModel, $this->getRender());

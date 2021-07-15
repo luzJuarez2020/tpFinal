@@ -15,26 +15,26 @@ class loginController{
         $password=$_POST["password"];
         $rol=$this->loginModel->validarUsuario($nombre,$password);
 
-
         if(isset($rol)) {
             switch ($rol) {
-                case 1:
+                case "1":
                     header("Location:/chofer");
-                    exit();
                     break;
-                case 2:
+                case "2":
 
                     break;
-                case 3:
+                case "3":
 
                     break;
-                case 4://administrador
-                    header("Location: ../model/paginaPrincipalAdmi.php");
+                case "4"://administrador
+                    header("Location:/administrador");
                     break;
                 default:
-                 header("Location:/administrador");
+                header("Location:/inicio");
                     break;
             }
+        }else{
+            header("Location:/inicio");
         }
 
 

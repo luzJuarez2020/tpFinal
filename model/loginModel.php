@@ -10,10 +10,12 @@ class loginModel
     }
 
 
-    public function validarUsuario($usuario,$clave){
-        $sql = "SELECT rol FROM usuario where nombre = '" .$usuario . "' and contrasenia= '".$clave."'";
-        return $this->database->query($sql);
+    public function validarUsuario($nombre,$clave){
+        $sql = "SELECT * FROM usuario";
+        return $this->database->verificarUsuario($sql,$nombre,$clave);
     }
+
+
 
 
 
