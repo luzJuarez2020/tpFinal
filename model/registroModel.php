@@ -1,8 +1,8 @@
 <?php
 
 use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer \ PHPMailer \ SMTP ;
-use  PHPMailer \ PHPMailer \ Exception ;
+use  PHPMailer\PHPMailer\SMTP;
+use  PHPMailer\PHPMailer\Exception ;
 
 class registroModel
 {
@@ -13,7 +13,7 @@ class registroModel
         $this->database = $database;
 
     }
-
+//hola como estan?
 
     public function execute($nombre,$contrasenia,$dni,$fecha_nac,$email,$hash){
         $sql = "INSERT INTO usuario(nombre,contrasenia,estado,dni,fecha_nac,email,hash,tipo_licencia,viajes,rol)
