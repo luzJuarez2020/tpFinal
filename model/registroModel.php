@@ -47,13 +47,13 @@ class registroModel
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-            $mail->Username = 'transportesunlam@gmail.com';                     //SMTP username
-            $mail->Password = '15072021';                               //SMTP password
+            $mail->Username = 'luzjuarez2016@gmail.com';                     //SMTP username
+            $mail->Password = 'Spinettalandia2022';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('transportesunlam@gmail.com', 'Empresa');
+            $mail->setFrom('luzjuarez2016@gmail.com', 'Empresa');
             $mail->addAddress($email, 'Joe User');     //Add a recipient
 
             //Content

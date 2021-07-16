@@ -2,9 +2,7 @@
 
 <div class="w3-bar w3-black ">
     <a href="/administrador/execute" class="w3-bar-item w3-button w3-mobile w3-hover-khaki w3-padding-large">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-khaki w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-khaki w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-khaki w3-padding-large">Link 3</a>
+    <a href="/login/cerrarSesion" class="w3-bar-item w3-button w3-mobile w3-hover-khaki w3-padding-large">cerrarSesion</a>
 </div>
 
 

@@ -12,8 +12,13 @@ class administradorController
     }
 
     public function execute(){
-        $data["usuario"] = $this->admiModel->getUsuarios();
-        echo $this->render->render("view/administradorView.php", $data);
+        if (isset($_SESSION['usuario'])) {
+            $data["usuario"] = $this->admiModel->getUsuarios();
+            echo $this->render->render("view/administradorView.php", $data);
+        }else{
+            header("Location:/inicio");
+            exit;
+        }
     }
 
     public function executeModRol(){

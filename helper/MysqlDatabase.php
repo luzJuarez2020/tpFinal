@@ -29,7 +29,6 @@ class MysqlDatabase{
             while($fila=$result->fetch_assoc()){
                 if($nombre==$fila["nombre"] && $password==$fila["contrasenia"] && $fila["estado"]==2){
                     $rol=$fila["rol"];
-                    $_SESSION["rol"]=$fila["rol"];
                 }
             }
         }
@@ -40,6 +39,8 @@ class MysqlDatabase{
     public function execute($sql){
         mysqli_query($this->connection, $sql);
     }
+
+
 
 
 
