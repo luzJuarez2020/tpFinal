@@ -7,12 +7,14 @@ include_once("helper/UrlHelper.php");
 include_once("model/loginModel.php");
 include_once("model/registroModel.php");
 include_once("model/administradorModel.php");
+include_once("model/supervisorModel.php");
 
 include_once("controller/loginController.php");
 include_once("controller/choferController.php");
 include_once("controller/inicioController.php");
 include_once("controller/registroController.php");
 include_once("controller/administradorController.php");
+include_once("controller/supervisorController.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -66,6 +68,19 @@ class Configuration{
         $registroModel = $this->getRegistroModel();
         return new registroController($registroModel, $this->getRender());
     }
+
+    public function getSupervisorModel(){
+        $database = $this->getDatabase();
+        return new supervisorModel($database);
+    }
+
+
+    public function getSupervisorController(){
+        $supervisorModel = $this->getSupervisorModel();
+        return new supervisorController($supervisorModel, $this->getRender());
+    }
+
+
 
     public function getAdministradorModel(){
         $database = $this->getDatabase();

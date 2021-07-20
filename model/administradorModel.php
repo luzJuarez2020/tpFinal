@@ -16,11 +16,16 @@ class administradorModel
     }
 
 
-    public function asignarRol($rol,$dni){
-        $sql = "UPDATE usuario SET rol='$rol' WHERE usuario.dni='$dni'";
-        return $this->database->execute($sql);
+    public function getUsuarioPorDni($dni){
+        $sql = "SELECT * FROM usuario WHERE dni='$dni'";
+        return $this->database->query($sql);
     }
 
+
+
+    public function borrarUsuario($dni){
+        return $this->database->execute("DELETE FROM usuario WHERE usuario.dni='$dni'");
+    }
 
 
 

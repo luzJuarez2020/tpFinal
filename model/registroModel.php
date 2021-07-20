@@ -16,8 +16,8 @@ class registroModel
 //hola como estan?
 
     public function execute($nombre,$contrasenia,$dni,$fecha_nac,$email,$hash){
-        $sql = "INSERT INTO usuario(nombre,contrasenia,estado,dni,fecha_nac,email,hash,tipo_licencia,viajes,rol)
-                value('$nombre','$contrasenia','1','$dni','$fecha_nac','$email','$hash',null,null,null)";
+        $sql = "INSERT INTO usuario(nombre,contrasenia,estado,dni,fecha_nac,email,hash)
+                value('$nombre','$contrasenia','1','$dni','$fecha_nac','$email','$hash')";
         $this->database->execute($sql);
     }
 

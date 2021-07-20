@@ -19,17 +19,18 @@ class loginController{
             switch ($rol) {
                 case "1":
                     $_SESSION['usuario']=$rol;
-                    header("Location:/chofer");
+                    header("Location:/administrador");
                     break;
                 case "2":
                     $_SESSION['usuario']=$rol;
+                    header("Location:/supervisor");
                     break;
                 case "3":
                     $_SESSION['usuario']=$rol;
                     break;
                 case "4"://administrador
                     $_SESSION['usuario']=$rol;
-                    header("Location:/administrador");
+                    header("Location:/chofer");
                     break;
                 default:
                 header("Location:/inicio");
