@@ -1,6 +1,5 @@
 <?php
 
-
 class administradorController
 {
     private $admiModel;
@@ -14,6 +13,7 @@ class administradorController
     public function execute(){
         if (isset($_SESSION['usuario'])) {
             $data["usuarios"] = $this->admiModel->getUsuarios();
+            $data["admin"]=true;
             echo $this->render->render("view/administradorView.php", $data);
         }else{
             header("Location:/inicio");
@@ -23,23 +23,34 @@ class administradorController
 
     public function executeModificacion(){
         $dni = $_GET["dni"];
-        $data["usuario"]=$this->admiModel->getUsuarioPorDni($dni);
-        echo $this->render->render("view/modificacionUsuario.php", $data);
+        $data["usuarioDni"]=$this->admiModel->getUsuarioPorDni($dni);
+        if (isset($_SESSION['usuario'])) {
+            echo $this->render->render("view/modificacionUsuario.php", $data);
+        }else{
+            header("Location:/inicio");
+            exit;
+        }
     }
 
     public function borrarUsuario(){
         $dni = $_GET["dni"];
         if ($this->admiModel->borrarUsuario($dni)) {
-            echo $this->render->render("view/administradorView.php");
+            header("Location:/administrador");
+            exit;
         }
     }
 
 
-    public function modificarRol(){
+    public function modificarDatos(){
         $rol=$_POST["roles"];
+        $email=$_POST["email"];
         $dni = $_GET["dni"];
-        $this->admiModel->asignarRol($rol,$dni);
-        echo $this->execute();
+
+        $this->admiModel->modificarEmail($email,$dni);
+        $this->admiModel->modificarRol($rol,$dni);
+        header("Location:/administrador");
+        exit;
+
     }
 
 }

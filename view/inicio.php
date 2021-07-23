@@ -20,7 +20,7 @@
     <div class="w3-display-topleft w3-padding-large w3-xlarge">
         Logo
     </div>
-    <div class="w3-display-middle " style="width:65%">
+    <div class="w3-display-middle w3-animate-top" style="width:65%">
         <!-- Tabs -->
         <div class="w3-container w3-white w3-padding-16 " style="background-color: black" >
             <h3 style="text-align: center">INICIA SESION</h3>

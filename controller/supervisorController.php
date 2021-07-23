@@ -20,15 +20,6 @@ class supervisorController
         }
     }
 
-    public function proformaVista(){
-        $data["numero"] =lpad;
-        echo $this->render->render("view/crearProforma.php", $data);
-    }
-
-
-    public function crearProforma(){
-
-    }
 
 
 }

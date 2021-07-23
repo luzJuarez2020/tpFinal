@@ -13,7 +13,7 @@ class registroModel
         $this->database = $database;
 
     }
-//hola como estan?
+
 
     public function execute($nombre,$contrasenia,$dni,$fecha_nac,$email,$hash){
         $sql = "INSERT INTO usuario(nombre,contrasenia,estado,dni,fecha_nac,email,hash)

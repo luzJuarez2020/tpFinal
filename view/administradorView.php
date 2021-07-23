@@ -1,11 +1,8 @@
 {{> header}}
-
-<div class="w3-bar w3-black ">
-    <a href="/administrador/execute" class="w3-bar-item w3-button w3-mobile w3-hover-khaki w3-padding-large">Home</a>
-</div>
+{{> barra}}
 
 
-<div >
+<div  >
     <table class="w3-table w3-centered w3-bordered w3-border w3-card-4 " style="margin: 35px">
         <thead>
         <tr class="w3-dark-grey">

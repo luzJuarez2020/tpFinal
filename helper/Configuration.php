@@ -8,6 +8,7 @@ include_once("model/loginModel.php");
 include_once("model/registroModel.php");
 include_once("model/administradorModel.php");
 include_once("model/supervisorModel.php");
+include_once("model/cargarViajeModel.php");
 
 include_once("controller/loginController.php");
 include_once("controller/choferController.php");
@@ -15,6 +16,7 @@ include_once("controller/inicioController.php");
 include_once("controller/registroController.php");
 include_once("controller/administradorController.php");
 include_once("controller/supervisorController.php");
+include_once("controller/cargarViajeController.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -81,7 +83,6 @@ class Configuration{
     }
 
 
-
     public function getAdministradorModel(){
         $database = $this->getDatabase();
         return new administradorModel($database);
@@ -91,6 +92,17 @@ class Configuration{
         $admiModel = $this->getAdministradorModel();
         return new administradorController($admiModel, $this->getRender());
     }
+
+    public function getCargarViajeModel(){
+        $database = $this->getDatabase();
+        return new cargarViajeModel($database);
+    }
+
+    public function getCargarViajeController(){
+        $cargaModel = $this->getCargarViajeModel();
+        return new cargarViajeController($cargaModel, $this->getRender());
+    }
+
 
     public function getRender(){
         return new Render('view/partial');
