@@ -9,7 +9,7 @@
     {{#usuario}}
     <div class="w3-display-middle" style="width:65%">
         <div class=" w3-white w3-padding-16 " >
-            <h3 style="text-align: center">Usuario: {{nombre}}</h3>
+            <h3 style="text-align: center">MODIFICAR USUARIO:  {{nombre}}</h3>
             <form method="post" action="/administrador/" enctype="multipart/form-data">
                 <div class="w3-row-padding" style="margin:0 -16px;">
                     <p>DNI:<input class="w3-input w3-padding-16 w3-border" type="Number"  id="dni" placeholder="{{dni}}" value={{dni}}></p>
