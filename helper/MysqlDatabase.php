@@ -40,6 +40,11 @@ class MysqlDatabase{
         mysqli_query($this->connection, $sql);
     }
 
+    public function queryResult($sql){
+        $result = mysqli_query($this->connection, $sql);
+        return mysqli_fetch_assoc($result,MYSQLI_ASSOC);
+    }
+
 
 
 

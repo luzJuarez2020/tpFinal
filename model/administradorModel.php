@@ -50,7 +50,7 @@ class administradorModel
                     $this->database->execute(" INSERT INTO administrador(id,dni_usuario,nombre) VALUES ('','$dni')");
                     break;
                 case 2:
-                    $this->database->execute(" INSERT INTO supervisor(id,nombre,dni_usuario) VALUES ('','','$dni')");
+                    $this->database->execute(" INSERT INTO supervisor(id,dni_usuario) VALUES ('','$dni')");
                     break;
                 case 3:
                     $this->database->execute(" INSERT INTO mecanico(dni_usuario) VALUES ('$dni')");

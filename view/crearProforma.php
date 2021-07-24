@@ -30,19 +30,19 @@
                     <p><input class="w3-input w3-padding-16 w3-border" name="tipoCarga" type="text" placeholder="tipo de carga" required></p>
                     <p>
                     <label for="hazard">Hazard</label><br>
-                        <input class="w3-radio" type="radio" name="hazard" value="si">
+                        <input class="w3-radio" type="radio" name="hazard" value="true">
                         <label>SI</label>
 
-                        <input class="w3-radio" type="radio" name="hazard" value="no">
+                        <input class="w3-radio" type="radio" name="hazard" value="false">
                         <label>NO</label>
                     </p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="precioHazard" type="number" placeholder="precio del hazard" ></p>
                     <p>
                         <label for="reefer">Reefer</label><br>
-                        <input class="w3-radio" type="radio" name="reefer" value="si">
+                        <input class="w3-radio" type="radio" name="reefer" value="true">
                         <label>SI</label>
 
-                        <input class="w3-radio" type="radio" name="reefer" value="no">
+                        <input class="w3-radio" type="radio" name="reefer" value="false">
                         <label>NO</label>
                     </p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="precioReefer" type="number" placeholder="precio del reefer" required></p>

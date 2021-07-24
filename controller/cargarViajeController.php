@@ -40,7 +40,7 @@ class cargarViajeController
         $eta=$_POST["eta"];
         $kmPrev=$_POST["kmPrev"];
         $combustiblePrev=$_POST["combustiblePrev"];
-        $gastosCombustiblePrev=$_POST["gastosCombustiblePrev"];
+       //falta en base $gastosCombustiblePrev=$_POST["gastosCombustiblePrev"];
         $peajePrev=$_POST["peajePrev"];
         $pesajePrev=$_POST["pesajePrev"];
         $viaticosPrev=$_POST["viaticosPrev"];
@@ -55,13 +55,23 @@ class cargarViajeController
         $pesoCarga=$_POST["pesoCarga"];
         $temperatura=$_POST["temp"];
 
-        $tractorViaje=$_POST["temp"]; //patentes
+        $tractorViaje=$_POST["tractorViaje"]; //patentes
         $arrastradoViaje=$_POST["arrastradoViaje"]; //patentes
         $supervisorViaje=$_POST["supervisorViaje"]; //dni
         $choferViaje=$_POST["choferViaje"]; //dni
 
 
-        $this->cargaModel->cargarViaje();
+        $this->cargaModel->cargarViaje($origen,$destino,$fechaCarga,$supervisorViaje,$choferViaje,$tractorViaje,$arrastradoViaje,
+        $eta,$etd,$tipoCarga,$pesoCarga,$hazard,$reefer,$kmPrev,$combustiblePrev,$peajePrev,$pesajePrev,$viaticosPrev,$extrasPrev,
+            $feePrev,$precioHazard,$precioReefer);
+        $this->cargaModel->cargarCliente($cuitCliente,$direccionCliente,$telCliente,$emailCliente);
+        $this->cargaModel->cargarCarga($tipoCarga,$hazard,$reefer,$temperatura,$pesoCarga);
+
+        if($_SESSION['usuario']==1){
+            header("Location:/administrador");
+        }else if($_SESSION['usuario']==2){
+            header("Location:/supervisor");
+        }
 
     }
 

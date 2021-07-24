@@ -141,7 +141,6 @@ create table carga(
 id int primary key auto_increment,
 tipo varchar(30),
 hazard boolean,
-imo_class varchar(80),
 reefer boolean,
 temperatura int(10),
 peso_neto varchar(15),
@@ -172,7 +171,9 @@ values(1,"pendiente"),
       (2,"activado");
       
 insert into usuario(nombre,contrasenia,estado,dni,fecha_nac,email,hash,rol)
-values('luz',123,2,42819089,'2000-11-26','luzjuarez2016@gmail.com','2015478gf997dsc12cds68gf48ergtrf',1)
+values('luz',123,2,42819089,'2000-11-26','luzjuarez2016@gmail.com','2015478gf997dsc12cds68gf48ergtrf',1),
+('lucia',123,2,20819784,'2001-05-11','luzjuarez2016@gmail.com','2015478gf997dsc12cds68gf48ergtrf',2),
+('marce',123,2,29419124,'1999-10-20','luzjuarez2016@gmail.com','2015478gf997dsc12cds68gf48ergtrf',4)
 ;   
       
       
