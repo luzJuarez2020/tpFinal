@@ -61,10 +61,11 @@ class cargarViajeController
         $choferViaje=$_POST["choferViaje"]; //dni
 
 
-        $this->cargaModel->cargarViaje($origen,$destino,$fechaCarga,$supervisorViaje,$choferViaje,$tractorViaje,$arrastradoViaje,
+
+     $this->cargaModel->cargarViaje($origen,$destino,$fechaCarga,$supervisorViaje,$choferViaje,$tractorViaje,$arrastradoViaje,
         $eta,$etd,$tipoCarga,$pesoCarga,$hazard,$reefer,$kmPrev,$combustiblePrev,$peajePrev,$pesajePrev,$viaticosPrev,$extrasPrev,
             $feePrev,$precioHazard,$precioReefer);
-        $this->cargaModel->cargarCliente($cuitCliente,$direccionCliente,$telCliente,$emailCliente);
+       $this->cargaModel->cargarCliente($cuitCliente,$direccionCliente,$telCliente,$emailCliente);
         $this->cargaModel->cargarCarga($tipoCarga,$hazard,$reefer,$temperatura,$pesoCarga);
 
         if($_SESSION['usuario']==1){

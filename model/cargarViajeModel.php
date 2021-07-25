@@ -32,11 +32,13 @@ class cargarViajeModel
         $mes=date("m");
         $anio=date("Y");
         $fecha=$anio."/".$mes."/".$dia;
+
+
         $estado = "PENDIENTE";
         $sql="INSERT INTO viaje (fecha,origen,destino,fecha_carga,estado,id_supervisor,id_chofer,id_tractor,
-                   id_arrastrado,fecha_llegada_previsto,fecha_salida_previsto,tipo_carga,peso_neto,hazard,reefer,
-                   kilometros_previstos,combustible_previsto,peaje_previsto,pesaje_previsto,viaticos_previstos,
-                   extras_previstos,fee_previsto,hazard_precio,reefer_precio)
+                   id_arrastrado,	fecha_llegada_previsto,fecha_salida_previsto,tipo_carga,peso_neto,hazard,reefer,
+                   	kilometros_previsto,combustible_previsto,peajes_previsto,pesajes_previsto,viaticos_previsto,
+                   extras_previsto,fee_previsto,hazard_precio,reefer_precio)
                    VALUES ('$fecha','$origen','$destino','$fechaCarga','$estado','$idSup','$idChofer','$idTractor','$idArrastrado',
                            '$eta','$etd','$tipoCarga','$pesoNeto','$hazard','$reefer','$kmPrev','$combPrev','$peajePrev','$pesajePrev',
                            '$viaticoPrev','$extrasPrev','$feePrev','$hazardPrecio','$reeferPrecio')";
@@ -45,7 +47,7 @@ class cargarViajeModel
     }
 
     public function getIdViaje(){
-        $sqlId = "SELECT MAX(id) AS id FROM viaje";
+        $sqlId = "SELECT MAX(numero) AS numero FROM viaje";
         $idViaje=$this->database->queryResult($sqlId);
         return $idViaje;
     }

@@ -15,8 +15,10 @@
                     <p><input class="w3-input w3-padding-16 w3-border" name="fechaCarga" type="date" placeholder="fecha de carga" required></p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="origen" type="text"  placeholder="lugar de origen" required></p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="destino" type="text" placeholder="lugar de destino" required></p>
-                    <p><input class="w3-input w3-padding-16 w3-border" name="etd" type="date" placeholder="fecha estimada de salida" required></p>
-                    <p><input class="w3-input w3-padding-16 w3-border" name="eta" type="date" placeholder="fecha estimada de llegada" required></p>
+                    <p>fecha estimada de salida</p>
+                    <p><input class="w3-input w3-padding-16 w3-border" name="etd" type="date" required></p>
+                    <p>fecha estimada de llegada</p>
+                    <p><input class="w3-input w3-padding-16 w3-border" name="eta" type="date" required></p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="kmPrev" type="number" placeholder="km previstos" required></p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="combustiblePrev" type="number" placeholder="combustible previsto" required></p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="gastosCombustiblePrev" type="number" placeholder="gasto de combustible previsto" required></p>
@@ -30,19 +32,19 @@
                     <p><input class="w3-input w3-padding-16 w3-border" name="tipoCarga" type="text" placeholder="tipo de carga" required></p>
                     <p>
                     <label for="hazard">Hazard</label><br>
-                        <input class="w3-radio" type="radio" name="hazard" value="true">
+                        <input class="w3-radio" type="radio" name="hazard" value="t">
                         <label>SI</label>
 
-                        <input class="w3-radio" type="radio" name="hazard" value="false">
+                        <input class="w3-radio" type="radio" name="hazard" value="f">
                         <label>NO</label>
                     </p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="precioHazard" type="number" placeholder="precio del hazard" ></p>
                     <p>
                         <label for="reefer">Reefer</label><br>
-                        <input class="w3-radio" type="radio" name="reefer" value="true">
+                        <input class="w3-radio" type="radio" name="reefer" value="t">
                         <label>SI</label>
 
-                        <input class="w3-radio" type="radio" name="reefer" value="false">
+                        <input class="w3-radio" type="radio" name="reefer" value="f">
                         <label>NO</label>
                     </p>
                     <p><input class="w3-input w3-padding-16 w3-border" name="precioReefer" type="number" placeholder="precio del reefer" required></p>
@@ -70,7 +72,7 @@
                     <select class="form-control" name="supervisorViaje">
                         <option selected value="0" >Seleccionar Supervisor</option>
                         {{#supervisores}}
-                        <option value="{{dni_usuario}}">{{id}}-{{dni_usuario}}</option>
+                        <option value="{{id}}">{{id}}-{{dni_usuario}}</option>
                         {{/supervisores}}
                     </select>
 
@@ -78,7 +80,7 @@
                     <select class="form-control" name="choferViaje">
                         <option selected value="0" >Seleccionar Chofer</option>
                         {{#choferes}}
-                        <option value="{{dni_usuario}}">{{dni_usuario}}</option>
+                        <option value="{{id}}">{{id}}-{{dni_usuario}}</option>
                         {{/choferes}}
                     </select>
 
