@@ -28,6 +28,7 @@ class cargarViajeController
 
 
     public function cargarProforma(){
+
         $cuitCliente=$_POST["cuitCliente"];
         $emailCliente=$_POST["emailCliente"];
         $direccionCliente=$_POST["direccionCliente"];
@@ -63,10 +64,13 @@ class cargarViajeController
 
 
      $this->cargaModel->cargarViaje($origen,$destino,$fechaCarga,$supervisorViaje,$choferViaje,$tractorViaje,$arrastradoViaje,
-        $eta,$etd,$tipoCarga,$pesoCarga,$hazard,$reefer,$kmPrev,$combustiblePrev,$peajePrev,$pesajePrev,$viaticosPrev,$extrasPrev,
-            $feePrev,$precioHazard,$precioReefer);
+         $eta,$etd,$tipoCarga,$pesoCarga,$hazard,$reefer,$kmPrev,$combustiblePrev,$peajePrev,$pesajePrev,$viaticosPrev,$extrasPrev,
+         $feePrev,$precioHazard,$precioReefer);
+        $this->cargaModel->cambiarEstadoChofer($choferViaje);
        $this->cargaModel->cargarCliente($cuitCliente,$direccionCliente,$telCliente,$emailCliente);
         $this->cargaModel->cargarCarga($tipoCarga,$hazard,$reefer,$temperatura,$pesoCarga);
+
+
 
         if($_SESSION['usuario']==1){
             header("Location:/administrador");

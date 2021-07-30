@@ -9,6 +9,8 @@ include_once("model/registroModel.php");
 include_once("model/administradorModel.php");
 include_once("model/supervisorModel.php");
 include_once("model/cargarViajeModel.php");
+include_once("model/choferModel.php");
+
 
 include_once("controller/loginController.php");
 include_once("controller/choferController.php");
@@ -17,6 +19,7 @@ include_once("controller/registroController.php");
 include_once("controller/administradorController.php");
 include_once("controller/supervisorController.php");
 include_once("controller/cargarViajeController.php");
+include_once("controller/detallePdfController.php");
 
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
@@ -56,8 +59,15 @@ class Configuration{
         return new loginController($loginModel, $this->getRender());
     }
 
+    public function getChoferModel(){
+        $database = $this->getDatabase();
+        return new choferModel($database);
+    }
+
+
     public function getChoferController(){
-        return new choferController($this->getRender());
+        $choferModel = $this->getChoferModel();
+        return new choferController($choferModel,$this->getRender());
     }
 
     public function getRegistroModel(){
@@ -70,6 +80,11 @@ class Configuration{
         $registroModel = $this->getRegistroModel();
         return new registroController($registroModel, $this->getRender());
     }
+
+    public function getDetallePdfController(){
+        return new detallePdfController($this->getRender());
+    }
+
 
     public function getSupervisorModel(){
         $database = $this->getDatabase();

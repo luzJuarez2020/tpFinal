@@ -22,8 +22,13 @@ class cargarViajeModel
     }
 
     public function getChoferes(){
-        return $this->database->query("SELECT * FROM chofer");
+        return $this->database->query("SELECT * FROM chofer WHERE estado='DISPONIBLE' and NOT tipo_licencia='NULL'");
     }
+
+    public function cambiarEstadoChofer($id){
+        $sql="UPDATE chofer SET chofer.estado='EN_VIAJE' WHERE chofer.id='$id'";
+    }
+
 
     public function cargarViaje($origen,$destino,$fechaCarga,$idSup,$idChofer,$idTractor,$idArrastrado,
     $eta,$etd,$tipoCarga,$pesoNeto,$hazard,$reefer,$kmPrev,$combPrev,$peajePrev,$pesajePrev,$viaticoPrev,
@@ -44,12 +49,13 @@ class cargarViajeModel
                            '$viaticoPrev','$extrasPrev','$feePrev','$hazardPrecio','$reeferPrecio')";
 
         $this->database->execute($sql);
+
     }
 
     public function getIdViaje(){
         $sqlId = "SELECT MAX(numero) AS numero FROM viaje";
-        $idViaje=$this->database->queryResult($sqlId);
-        return $idViaje;
+        $idViaje=$this->database->queryNum($sqlId);
+        return $idViaje[0];
     }
 
     public function cargarCliente($cuit,$direccion,$telefono,$email){

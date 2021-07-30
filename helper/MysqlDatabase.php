@@ -21,6 +21,14 @@ class MysqlDatabase{
         $result = mysqli_query($this->connection, $sql);
         return mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
+    public function execute($sql){
+        mysqli_query($this->connection, $sql);
+    }
+
+    public function queryNum($sql){
+        $result = mysqli_query($this->connection, $sql);
+        return mysqli_fetch_array($result);
+    }
 
     public function verificarUsuario($sql,$nombre,$password){
         $result = mysqli_query($this->connection, $sql);
@@ -35,15 +43,6 @@ class MysqlDatabase{
         return $rol;
     }
 
-
-    public function execute($sql){
-        mysqli_query($this->connection, $sql);
-    }
-
-    public function queryResult($sql){
-        $result = $this->connection->query($sql);
-        return $result->fetch_assoc();
-    }
 
 
 

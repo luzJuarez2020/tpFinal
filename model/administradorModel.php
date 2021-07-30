@@ -56,7 +56,7 @@ class administradorModel
                     $this->database->execute(" INSERT INTO mecanico(dni_usuario) VALUES ('$dni')");
                     break;
                 case 4:
-                    $this->database->execute(" INSERT INTO chofer(dni_usuario) VALUES ('$dni')");
+                    $this->database->execute(" INSERT INTO chofer(dni_usuario,estado) VALUES ('$dni','DISPONIBLE')");
                     break;
             }
         }

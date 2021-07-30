@@ -11,10 +11,27 @@ class supervisorController
         $this->render = $render;
     }
 
-    public function execute(){
+
+    public function execute()
+    {
         if (isset($_SESSION['usuario'])) {
-            echo $this->render->render("view/supervisorView.php");
-        }else{
+            $data["supervisor"] = true;
+            $data["viajesCurso"] = $this->supModel->getViajesActivos();
+            $data["viajesProx"] = $this->supModel->getViajesProximos();
+            echo $this->render->render("view/supervisorView.php", $data);
+        } else {
+            header("Location:/inicio");
+            exit;
+        }
+    }
+
+    public function executeModificacionVehiculo()
+    {
+        $dni = $_GET["dni"];
+        $data["usuarioDni"] = $this->admiModel->getUsuarioPorDni($dni);
+        if (isset($_SESSION['usuario'])) {
+            echo $this->render->render("view/modificacionUsuario.php", $data);
+        } else {
             header("Location:/inicio");
             exit;
         }
@@ -22,4 +39,10 @@ class supervisorController
 
 
 
+
+
 }
+
+
+
+

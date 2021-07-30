@@ -2,7 +2,7 @@
 {{> barra}}
 
 
-<div  >
+<div style="margin-right: 60px" >
     <table class="w3-table w3-centered w3-bordered w3-border w3-card-4 " style="margin: 35px">
         <thead>
         <tr class="w3-dark-grey">

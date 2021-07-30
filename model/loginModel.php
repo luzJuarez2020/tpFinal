@@ -15,6 +15,12 @@ class loginModel
         return $this->database->verificarUsuario($sql,$nombre,$clave);
     }
 
+    public function dniUsuario($usuario){
+        $sql = "SELECT * FROM usuario WHERE usuario.nombre='$usuario'";
+        $dni=$this->database->query($sql);
+        return $dni;
+    }
+
 
 
 

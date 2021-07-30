@@ -53,4 +53,11 @@ class administradorController
 
     }
 
+    public function perfilAdmi(){
+        $data["user"]=$_SESSION['user'];
+        echo $this->render->render("view/perfilView.php", $data);
+
+    }
+
+
 }

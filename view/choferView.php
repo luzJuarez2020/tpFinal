@@ -1,74 +1,65 @@
-<?php
+{{> header}}
+{{> barra}}
 
-include_once("controller/AccessDeniedY404Controller.php");
+<div>
+    <table class="w3-table w3-centered w3-bordered w3-border w3-card-4 " style="margin: 35px">
+        <thead>
+        <tr class="w3-dark-grey">
+            <th colspan="7" class=" w3-border">VIAJE ACTUAL</th>
+        </tr>
+        <tr>
+            <th class=" w3-border">Numero</th>
+            <th class=" w3-border">Origen</th>
+            <th class=" w3-border">Destino</th>
+            <th class=" w3-border">Estado</th>
+            <th class=" w3-border">Fecha de salida estimada</th>
+            <th class=" w3-border">Fecha de llegada estimada </th>
+            <th class=" w3-border">Reporte diario </th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#viajeActual}}
+        <tr>
+            <td class=" w3-border">{{numero}}</td>
+            <td class=" w3-border">{{origen}}</td>
+            <td class=" w3-border">{{destino}}</td>
+            <td class=" w3-border">{{estado}}</td>
+            <td class=" w3-border ">{{fecha_salida_previsto}}</td>
+            <td class=" w3-border ">{{fecha_llegada_previsto}}</td>
+            <td class=" w3-border "><a class="w3-button w3-khaki w3-round-xlarge" href="/dni={{dni}}"><b>Ver qr</b></a></td>
+        </tr>
+        {{/viajeActual}}
+        </tbody>
 
-class SessionManager {
 
-    private $accessControl = [
-        "admin" => ['login', 'registro', 'home', 'reportes', 'usuarios','editarUsuario','eliminarUsuario','cargarViajeController', 'perfil'],
-        "supervisor" => ['login', 'registro', 'home', 'cargarViajeController', 'detalle', 'perfil'],
-        "chofer" => ['login', 'registro', 'home', 'verViaje', 'subirDatos', 'chofer', 'reporteDiario', 'procesarReporteDiario', 'perfil'],
-        "mecanico" => ['login', 'registro','home', 'service', 'mecanico', 'perfil'],
-        "sinRol" => ['login', 'registro', 'home']
-    ];
+        <thead>
+        <tr class="w3-dark-grey">
+            <th colspan="7" class=" w3-border">PROXIMOS VIAJES</th>
+        </tr>
+        <tr>
+            <th class=" w3-border">Numero</th>
+            <th class=" w3-border">Origen</th>
+            <th class=" w3-border">Destino</th>
+            <th class=" w3-border">Estado</th>
+            <th class=" w3-border">Fecha de salida estimada</th>
+            <th class=" w3-border">Fecha de llegada estimada </th>
+            <th class=" w3-border">Ver proforma </th>
+        </tr>
+        </thead>
 
-    function iniciarSesion($usuario, $rol) {
-        if (!isset($_SESSION[$usuario['usuario']])) {
-            $_SESSION['usuario'] = $usuario['usuario'];
-            $_SESSION['rol'] = $rol;
-            $nombre = ucfirst($usuario['nombre']);
-            $apellido = ucfirst($usuario['apellido']);
-            $_SESSION['nombreCompleto'] = "${nombre}, ${apellido}";
-            $_SESSION['idUsuarioActual'] = $usuario['id'];
-        }
-    }
+        <tbody>
+        {{#viajes}}
+        <tr>
+            <td class=" w3-border">{{numero}}</td>
+            <td class=" w3-border">{{origen}}</td>
+            <td class=" w3-border">{{destino}}</td>
+            <td class=" w3-border">{{estado}}</td>
+            <td class=" w3-border ">{{fecha_salida_previsto}}</td>
+            <td class=" w3-border ">{{fecha_llegada_previsto}}</td>
+            <td class=" w3-border "><a class="w3-button w3-khaki w3-round-xlarge" href="/dni={{dni}}"><b>Ver pdf</b></a></td>
+        </tr>
+        {{/viajes}}
+        </tbody>
 
-    public function cerrarSesion() {
-        if (isset($_SESSION['usuario'])) {
-            session_destroy();
-        }
-    }
-
-    public function chequearSesion($modulo = null) {
-        if ($modulo == 'registro' && !isset($_SESSION['usuario'])) {
-            return true;
-        } else {
-            $tieneAcceso = $this->tieneAccesoAlModulo($modulo);
-            return isset($_SESSION['usuario']) && $tieneAcceso;
-        }
-    }
-
-    private function tieneAccesoAlModulo($modulo) {
-        if (isset($_SESSION['usuario'])) {
-            if ($modulo == null) {
-                return true;
-            } else {
-                return $this->esUnaVistaValida($modulo);
-            }
-        } else {
-            return false;
-        }
-    }
-
-    private function esUnaVistaValida($modulo) {
-        $arrayDeVistas = array_merge(...array_values($this->accessControl));
-
-        $existeVista = in_array($modulo, $arrayDeVistas);
-        if ($existeVista) {
-            $tienePermisoParaLaVista = in_array($modulo, $this->accessControl[$_SESSION['rol']]);
-        }
-
-        $render = new Render('view/partial');
-        $con = new AccessDeniedY404Controller($render);
-
-        if (!$existeVista) {
-            $con->paginaNoExiste();
-            exit;
-        } else if (!$tienePermisoParaLaVista) {
-            $con->accesoDenegado();
-            exit;
-        }
-        return $existeVista && $tienePermisoParaLaVista;
-    }
-}
-
+    </table>
+</div>
